@@ -1,0 +1,32 @@
+package com.company;
+
+public class Main {
+    public int[] Select( int arr[])
+    {
+        int i ,j,minIndex;
+        int n = arr.length;
+        for( i=0; i<n-1;i++) {
+            minIndex = i;
+            for (j = i+1; j < n; j++)
+            {
+                if( arr[minIndex] > arr[j] ){int temp=arr[minIndex]; arr[minIndex]=arr[j];arr[j]=temp; }
+            }
+            int temp=arr[i]; arr[minIndex]=arr[i];arr[minIndex]=temp;
+
+        }
+        return arr;
+
+    }
+
+    public static void main(String[] args) {
+	// write your code here
+
+        int arr[]={9,1,7,4,2,3};
+        Main obj1=new Main();
+        obj1.Select(arr);
+
+        for (int i=0; i<arr.length; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+}
