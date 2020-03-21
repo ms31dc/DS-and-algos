@@ -1,0 +1,19 @@
+class rearrange
+{
+    // Function to rearrange the elements
+    // arr: input array
+    // n: size of array
+    static void arrange(long arr[], int n)
+    {
+        // your code here
+        
+        for(long i=0;i<n;i++){
+        arr[(int)i] = arr[(int)i]+ ( arr[(int)arr[(int)i]] % n) * n;
+    }
+
+        for(long i=0;i<n;i++){
+        arr[(int)i]=arr[(int)i]/n;
+    }
+        
+    }
+}
