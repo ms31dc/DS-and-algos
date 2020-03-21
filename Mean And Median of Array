@@ -1,0 +1,28 @@
+ss MM
+{
+    
+  public int median(int A[],int N)
+    {
+      
+  Arrays.sort(A);
+        int median=0;
+        if(N%2==0)
+            median= (int)((A[(N-1)/2]+A[N/2])/2);
+        else
+            median= A[N/2];
+        return median;
+    }
+    
+    public int mean(int A[],int N)
+    {
+       //Your code here;
+         int total=0;
+        for(int a =0 ; a<N; a++)
+        {
+            total=A[a]+total;
+
+        }
+        return total/N;
+    }
+
+}
