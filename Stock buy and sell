@@ -1,0 +1,46 @@
+
+class Stock{
+
+    // Function to find the buy and sell days and print them
+    static void stockBuySell(int price[], int n) {
+        
+if(n==1) return;
+         int count=0,i=0;
+
+         ArrayList<Interval> soln=new  ArrayList<Interval>();
+         // 100, 180, 260, 310, 40, 535, 695
+         while(i<n-1)
+         {
+             while(i<n-1 && price[i]>=price[i+1]) i++; /// to check for the minima least point to buy
+
+             if(i==n-1) {break;}/// buggers have given us a descending array
+
+             Interval e =new Interval();
+
+             e.buy =i; // added a new set of buying
+             i++;// increase i as u have bought stuff and need to find maxima next
+
+             while(i<n && price[i]>=price[i-1])i++;
+
+             e.sell =i-1;
+
+             soln.add(e);
+
+            count++;
+         }
+
+         if(count==0){
+             System.out.println("No Profit");
+         }
+         else{
+             for(int s =0;s<soln.size();s++)
+             {System.out.print("("+soln.get(s).buy+" "+soln.get(s).sell  +")");
+             System.out.print(" ");}
+
+
+
+         }
+        
+    } 
+    
+}
