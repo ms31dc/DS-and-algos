@@ -1,0 +1,35 @@
+class Kadane{
+    
+    // Function to find circular subarray with maximum sum
+    // a: input array
+    // n: size of array
+    static int circularSubarraySum(int a[], int n) {
+
+        // Your code here
+        int regK=Kandane(  a,   n);
+        if(regK<0) return regK;
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {sum+=a[i];
+        a[i]=-a[i];}
+
+        int circK=sum+(Kandane(a,n));
+        return Integer.max(regK, circK);
+    }
+    static int Kandane(int a[], int n) {
+
+     int sum=a[0];
+     int maxS=a[0];
+
+     for(int i=1;i<n;i++)
+     {
+         maxS=Math.max(maxS+a[i],a[i]);
+         sum=Math.max(sum,maxS);
+     }
+
+
+        return sum;
+    }
+    
+}
+
