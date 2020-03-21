@@ -1,0 +1,13 @@
+
+class Digitcount
+{
+    // complete the below function
+    public static int countDigits(int n)
+    {
+        // add your code here
+       if(n/10==0){return 1;}
+       // if(n==0){return 1;}
+
+        return  ( n/n+  countDigits((n/10)  ))  ;
+    }
+}
