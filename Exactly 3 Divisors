@@ -1,0 +1,24 @@
+
+class Divisors
+{
+    
+    public int exactly3Divisors(int N)
+    {
+       
+          boolean flag;
+        int count = 0;
+        for (int i = 2; i * i <= N; i++) // CAREFULLY see the condition, if we keep i<=n it gives TLE.
+        {
+            flag = true;
+            for (int j = 2; j <= i / 2; j++) // loop checking if j is prime or not
+            {
+                if (i % j == 0)
+                    flag = false;
+            }
+            if (flag) // yes the no. is prime and its sqare is <=n (checked in the conditions)
+                count++;
+        }
+        return count;
+
+    }
+}
