@@ -1,0 +1,26 @@
+class RotateArray
+{
+    static void rotateArr(int arr[], int d, int n)
+    {
+        // add your code here
+        reverse(arr,0,d-1);
+        reverse(arr,d,n-1);
+        reverse(arr,0,n-1);
+        
+    }
+       public static void reverse(int mv[], int low, int high) {
+        // add your code here
+        if(low<high) {
+            while (low < high) {
+                int temp = mv[high];
+                mv[high]=mv[low];
+                mv[low]=temp;
+                low++;
+                high--;
+            }
+        }
+        else {}
+    }
+
+
+}
