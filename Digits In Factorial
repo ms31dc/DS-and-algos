@@ -1,0 +1,23 @@
+
+class Factorial
+{
+    
+    public int digitsInFactorial(int N)
+    {
+        //Your code here
+        
+        if (N==0) return 0;
+        if(N==1) return 1;
+        
+          double count=0;
+
+        for(long i=1 ; i<=N; i++)
+        {
+            count= count+    Math.log10(i);
+           // System.out.println(count);
+        }
+        return (int)count+1;
+
+    }
+
+}
