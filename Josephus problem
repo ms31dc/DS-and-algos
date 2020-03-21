@@ -1,0 +1,16 @@
+int josephus_test(int n, int k)
+    {
+        //Your code here
+        if(n==1){return 0;}
+        else{
+
+            return( ((josephus_test(n-1,k))+k)%n     );
+        }
+    }
+
+
+    int josephus(int n, int k)
+    {
+
+      return  josephus_test(n,k)+1;
+    }
