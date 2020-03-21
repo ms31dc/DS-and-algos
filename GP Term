@@ -1,0 +1,25 @@
+
+class GP 
+{
+    
+    public double termOfGP(int A,int B,int N)
+    {
+       //Your code here
+        double ans=0 ;
+        if(N==1){ans=A;}
+
+        if(N==2){ans=B;}
+
+        if(N>2){
+            double a= A;
+            float ratio =(float)B/(float)A;
+            //System.out.println(ratio);
+            double pow=N-1;
+            return A*Math.pow(ratio,pow);
+
+
+        }
+        return ans;
+    }
+
+}
