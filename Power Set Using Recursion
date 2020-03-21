@@ -1,0 +1,29 @@
+
+class LexSort
+{
+    // complete the function
+   
+    static ArrayList<String> subsetlist=new ArrayList<String>();
+    static ArrayList<String> powerSet(String s)
+    {
+        
+        int index=0;
+        String Current="";
+         subsetlist.clear();
+        Subset1(s,index,Current) ;
+        return subsetlist;
+    }
+
+    static ArrayList<String> Subset1(String str,int index , String current) {
+
+        if(index==str.length()){
+            subsetlist.add(current);
+            return subsetlist;
+        }
+
+        Subset1(str,index+1,current);
+        Subset1(str,index+1,current+str.charAt(index));
+
+        return subsetlist;
+    }
+}
