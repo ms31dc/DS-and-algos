@@ -1,0 +1,24 @@
+lass Frequency{
+    
+    // Function to count frequencies of elements in the array
+    // arr: input array
+    // n: size of array
+    public static void  printFrequency(int arr[], int n){
+        
+        // Your code here
+        
+        int[] lol= new int[n];
+    for(int i=0;i<n;i++)
+    {
+        lol[arr[i]-1]++;
+
+    }
+    
+    StringBuffer buff = new StringBuffer("");
+        for (int i:lol ) {
+           buff.append(i+" "); ;
+        }
+         System.out.print(buff);
+        
+    }
+}
