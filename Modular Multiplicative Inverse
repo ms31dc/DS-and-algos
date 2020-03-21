@@ -1,0 +1,29 @@
+
+class Modular 
+{
+    
+  public int modInverse(int a, int m)
+    {
+      //Your code here
+       a = a % m; 
+       int x=1;
+       while (x < m)
+       {
+           if ((a * x) % m == 1) 
+             { return x; }
+             else{        return 1; }
+        x++;
+       }
+       
+           
+        
+        
+    }
+
+}
+
+        
+        
+    }
+
+}
