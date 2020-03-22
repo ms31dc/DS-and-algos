@@ -1,0 +1,26 @@
+class CountBits{
+    
+    // Function to count number of set bits
+    public static int countSetBits(int n){
+    
+          // Your code here
+        if(n==0){return 0;}
+        int res=0;
+        for(int i=1;i<=n;i++)
+        {
+             int l=i;
+            while(l>0)
+            {
+                l=((l)& (l-1));
+                res=res+1;
+            }
+
+
+        }
+
+
+        return res;
+
+        
+    }
+}
