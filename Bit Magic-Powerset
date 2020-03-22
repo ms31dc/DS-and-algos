@@ -1,0 +1,35 @@
+
+class Main {
+
+
+
+
+
+    static void powerSet(char []set )
+    {
+        int n=set.length;
+
+       
+        double outter=Math.pow(2,n);
+
+        for(int counter=0; counter<outter;counter++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if((counter & (1<<j)) !=0){System.out.print(  set[j]);    }
+            }
+
+
+            System.out.println("");
+        }
+
+    }
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+        char[] arr =new char[]{'a','b','c'};
+//1,2,3,4
+
+        stock.powerSet(arr );
+    }
+}
