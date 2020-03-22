@@ -1,0 +1,15 @@
+public static int posOfRightMostDiffBit(int m, int n) {
+        
+   int xor= (m ^ n);
+int count=0;
+while (xor>0)
+{
+    if (((xor) & (1) ) ==0  )   {count++;    }else{count++ ;return count;}
+    xor=xor>>1;
+
+}
+
+
+      return count;  
+        
+}
