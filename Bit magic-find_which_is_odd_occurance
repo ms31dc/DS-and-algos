@@ -1,0 +1,28 @@
+
+class Main {
+
+
+
+
+
+    static int OddNumbOfOcc(int arr[],int n)
+    {
+        int res=0;
+        //x^0=x, x^y=y^x ,x^(y^z) = (x^y)^z, x^x=0;
+        for(int i=0;i<n;i++)
+        {
+            res=res^arr[i];
+
+        }
+        return res;
+    }
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+int[] arr =new int[]{1,1,3,3,4};
+
+
+        System.out.println(stock.OddNumbOfOcc(arr,arr.length ));
+    }
+}
+
