@@ -1,0 +1,85 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+import static java.lang.StrictMath.*;
+// Program to find best buying and selling days
+import java.util.ArrayList;
+
+// Solution structure
+
+class Main {
+    // This function finds the buy sell schedule for maximum profit
+
+
+        // Function to check if array is sorted and rotated
+        // arr: input array
+        // n: size of array
+
+
+    static int countSetBits(int n)
+    {
+        int[] base256 = new int[256];
+        base256[0]=0;
+        for(int i=0;i<256;i++)
+        {
+            base256[i]= (i&1) +  base256[i/2];
+        }
+int res=0;
+        res=res+base256[(n& 0xff)];
+        n=n>>8;
+
+        res=res+base256[(n& 0xff)];
+        n=n>>8;
+        res=res+base256[(n& 0xff)];
+        n=n>>8;
+        res=res+base256[(n& 0xff)];
+
+        return res;
+    }
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+
+        // stock prices on consecutive days
+//        int price[] = { 30 ,20 ,10, 50, 35};
+//        int n = price.length;
+
+        // fucntion call
+      //boolean aa=  stock.checkRotatedAndSorted(8, 5);
+      //System.out.println(stock.countSetBits(8 ));
+
+        System.out.println(stock.countSetBits(122 ));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Return True if the given number is a lucky number else return False
+
+
+
+
+
+
+
+
