@@ -1,0 +1,37 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+import static java.lang.StrictMath.*;
+ 
+import java.util.ArrayList;
+
+ 
+
+class Main {
+    static boolean ifPowerOfTwo(int n)
+    {
+        if(n==0) return false;
+        else {
+            if ((n & (n - 1)) == 0)
+                return true;
+            else return false;
+        }
+    }
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+
+ 
+
+        System.out.println(stock.ifPowerOfTwo(64 ));
+    }
+}
+
+
