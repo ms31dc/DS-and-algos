@@ -1,0 +1,18 @@
+class Main {
+
+    public static boolean sparseOrNot(int a ){
+
+       if((a & (a>>1))!=0){return true;}
+
+
+return false;
+    }
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+        char[] arr =new char[]{'a','b','c'};
+//1,2,3,4
+
+       System.out.println(stock.sparseOrNot(3)); ;
+    }
+}
