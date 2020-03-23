@@ -1,0 +1,26 @@
+
+class Main {
+
+    public static int swapBits(int n) {
+
+        // Your code
+        int even = (n & (0xAAAAAAAA));
+        int odd= (n & (0x55555555) );
+        int x= even>>1;
+        int y= odd<<1;
+
+
+        return x|y;
+
+    }
+
+
+    public static void main(String args[])
+    {
+        Main stock = new Main();
+ 
+       System.out.println(stock.swapBits(2)); ;
+    }
+}
+
+
