@@ -1,0 +1,17 @@
+class BitWise{
+    
+    // function to conver given N Gray to Binary
+    public static int grayToBinary(int n) {
+        
+        int num=n;
+        while(n>=1)
+        {
+            n=n>>1;
+            num=(num^n);
+
+        }
+        return num;
+        
+    }
+       
+}
