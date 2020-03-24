@@ -1,0 +1,23 @@
+class BoundaryTraversal
+{
+ /*  n1, m1: rows and cols of matrix
+     a[][]: input matrix
+*/
+    static void boundaryTraversal(int n1, int m1, int a[][])
+    {
+        //Your code here
+        int r=n1;
+        int c=m1;
+        if(r==1){for(int i=0;i<c;i++){System.out.print(a[0][i]+" ");} }
+        else if(c==1){for(int i=0;i<r;i++)  System.out.print(a[i][0]+" "); }
+        else{
+
+            for(int i=0;i<c;i++){System.out.print(a[0][i]+" ");}
+            for(int i=1;i<r;i++){System.out.print(a[i][c-1]+" ");}
+            for(int i=c-2;i>=0;i--){System.out.print(a[r-1][i]+" ");}
+            for(int i=r-2;i>0;i--){System.out.print(a[i][0]+" ");}
+        }
+        
+    }
+    
+}
