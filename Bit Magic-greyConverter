@@ -1,0 +1,11 @@
+class Gray{
+    
+    //  Function to find the gray code of given number N
+    public static int greyConverter(int n) {
+        if(n==0){return 0;}
+        // Your code here
+        else{
+        return (n^(n>>1));}
+    }
+    
+}
