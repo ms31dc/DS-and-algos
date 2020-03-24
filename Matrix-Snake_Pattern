@@ -1,0 +1,17 @@
+
+class Snake_Pattern
+{
+    //Complete this function
+    //a is matrix
+    static void print(int a[][], int n)
+    {
+      for(int i=0;i<a.length;i++)
+        {
+            if(i%2==0){for(int j=0;j<a[i].length;j++){System.out.print(a[i][j]+" ");}}
+            if(i%2==1){for(int j=a[i].length-1;j>=0;j--){System.out.print(a[i][j]+" ");} }
+
+           
+
+        }
+    }
+}
