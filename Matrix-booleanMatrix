@@ -1,0 +1,44 @@
+static void booleanMatrix(int r, int c, int mat[][])
+    {
+
+        int [] row =new int[r];
+        int [] column =new int[c];
+
+        for(int i=0;i<row.length;i++)
+        {row[i]=0;}
+
+        for(int i=0;i<column.length;i++)
+        {column[i]=0;}
+
+
+        for(int i=0;i<r;i++)
+        {for(int j=0;j<c;j++)
+        {
+            if(mat[i][j]==1){row[i]=1; column[j]=1; }
+        }
+
+        }
+
+        for(int i=0;i<r;i++)
+        {for(int j=0;j<c;j++)
+        {
+            if((row[i]==1 )|| (column[j]==1))
+                mat[i][j]=1;
+
+        }
+
+        }
+
+
+
+        StringBuilder sb=new StringBuilder();
+
+        for (int i = 0; i < mat.length; i++)
+        {
+            for (int j = 0; j <mat[i].length; j++)
+                sb.append(mat[i][j] + " ");
+            sb.append("\n");
+        }
+        System.out.print(sb);
+
+    }
