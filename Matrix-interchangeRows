@@ -1,0 +1,17 @@
+ static void interchangeRows(int n1, int m1, int arr1[][])
+    {
+        for(int i=0;i<m1;i++)
+        {
+            int low=0;
+            int high=n1-1;
+
+            while (low < high)
+            {
+                int temp=arr1[low][i];
+                arr1[low][i]=arr1[high][i];
+                arr1[high][i]=temp;
+                low++;high--;
+
+            }
+        }
+    }
