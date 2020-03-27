@@ -1,0 +1,13 @@
+static  int leftbinarySearch(int arr[], int low, int high, int x)
+{
+    if(low>high){return -1;}
+
+    int mid= low+(high-low)/2;
+
+    if((arr[mid]==x) && (mid==0|| arr[mid-1]!=x))
+    {return mid;}
+
+    if(arr[mid]>=x){return leftbinarySearch(arr,0,mid-1,x) ;}
+    else {return leftbinarySearch(arr,mid+1,high,x) ;}
+
+}
