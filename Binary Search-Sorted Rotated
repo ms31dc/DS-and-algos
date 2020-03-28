@@ -1,0 +1,68 @@
+
+    static int pivotedSearch(int arr[],int x)
+    {
+        int pivot=findPivot(arr,0,arr.length-1);
+
+
+        if(pivot==-1){return binarySearch(arr,0,arr.length-1,x);}
+
+        if(arr[pivot]==x){return pivot;}
+        //x>arr[0]
+        if(arr[0] <= x )
+        {return binarySearch(arr,0,pivot-1,x); }
+        else {  return binarySearch(arr,pivot+1,arr.length-1,x);  }
+        //{19,343,3431, 1, 2, 3,  4, 5,  10};
+
+
+    }
+
+
+
+    static int findPivot(int arr[], int low ,int high)
+    {
+
+
+
+        if(low>high){return -1;}/// The pivot is not found;
+
+        if(high==low){return low;}///This is the base case for example in BS Search we say arr[mid]==x then return mid
+        ///Same logic , here we say that if low == high then we have reached our end and that we can retrn low.
+
+        int mid= low+(high-low)/2;
+
+        if((mid<high) && (arr[mid]>arr[mid+1]))
+        {return mid;}
+
+        if((low<mid) && (arr[mid]<arr[mid-1]))
+        {return mid-1;}
+
+        if(arr[low]>=arr[mid])
+        {return findPivot(  arr, low,mid-1);  }
+        else{return  findPivot(  arr, mid+1,high);  }
+
+
+
+    }
+
+
+
+    static  int binarySearch(int arr[], int low, int high, int x)
+    {
+        if(low>high){return -1;}
+
+        int mid= low+(high-low)/2;
+
+        if((arr[mid]==x))
+        {return mid;}
+
+        if(arr[mid]>x){return binarySearch(arr,low,mid-1,x) ;}
+        else {return binarySearch(arr,mid+1,high,x) ;}
+
+    }
+
+ public static void main(String args[])
+    {
+          int arr1[] = {19,343,3431, 1, 2, 3,  4, 5,  10};
+          
+        System.out.println("index is "+ (pivotedSearch(arr1, 19) ));
+}
