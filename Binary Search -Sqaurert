@@ -1,0 +1,27 @@
+ public static int floorSqrt(int x)
+    {
+       if(x==1 || x==0){return x;}
+
+       int start=1 ; int ans=0;///As we have already dealt for the base case if x=1 or x=1 0
+        int end =x;
+        while(start<end)
+        {
+            int mid = start + (end-start)/2;
+
+            if(mid*mid==x){return mid;}
+
+            if(mid*mid<x)
+            {
+                ans=mid;
+                start=mid+1;///Now that we have found the naswer ... move on man
+
+            }
+            else{end =mid-1;}
+
+
+        }
+        return ans;
+
+
+    }
+           System.out.println(floorSqrt(17));
