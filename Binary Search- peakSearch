@@ -1,0 +1,21 @@
+
+    static  int peakSearch(int arr[], int low, int high, int n)
+    {
+        int mid= low+(high-low)/2;
+
+        if(( mid==0 || arr[mid-1] <= arr[mid] ) && ( mid==n-1 || arr[mid]>=arr[mid+1]   ))
+        {return mid;}
+
+//        if ((mid == 0 || arr[mid-1] <= arr[mid]) && (mid == n-1 ||
+//                arr[mid+1] <= arr[mid]))
+//            return mid;
+
+
+        if(arr[mid-1]>arr[mid]  && mid>0)
+        {return peakSearch(  arr  , low, (mid-1),   n) ; }
+
+        else { {return peakSearch(  arr  , mid+1, high,   n) ; }}
+    }
+    
+    
+    peakSearch(arr1, 0, arr1.length-1,arr1.length)
