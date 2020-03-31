@@ -1,0 +1,20 @@
+  static int maxStep(int arr[], int n){
+         
+       int count=0;
+    int maxcount=0;
+
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]-arr[i-1]>0)
+        {count++;
+
+        }
+        else  { maxcount=Math.max(maxcount,count);
+        count=0;}
+    }
+
+
+    // Your code here
+return Math.max(maxcount,count);
+        
+    }
