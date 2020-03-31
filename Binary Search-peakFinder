@@ -1,0 +1,22 @@
+public static  int peakElement(int[] a,int n)
+    {
+        //add code here.
+        //3,1,4,2,66
+        int ans=peakFinder(a,0,n-1,n);
+
+
+return ans;
+    }
+
+    public static  int peakFinder(int[] a,int low,int high,int n)
+    {
+        int mid=(low+(high-low)/2);
+        //combinayion of left and right
+        if(((mid==0)|| (a[mid]>=a[mid-1])) && ( (mid==n-1) ||(a[mid]>=a[mid+1])) )
+        {return 1 //a[mid]
+             ;}
+
+        if( (  mid>0  ) && ( a[mid-1]>a[mid] )  ){return  peakFinder(  a,  low,mid-1,  n) ; }
+
+        else {{return  peakFinder(  a,  mid+1,high,  n) ; }}
+    }
