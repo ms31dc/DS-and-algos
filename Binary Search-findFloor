@@ -1,0 +1,23 @@
+static int findFloor(long arr[], int left, int right, long x)
+    {
+         
+        while(left<=right) {
+            int mid = left + (right - left) / 2;
+
+            if ((arr[mid] == x)     )
+                return mid;
+
+            if ((arr[mid] <= x) && (  (mid==arr.length-1)  || (arr[mid+1] > x)  )   )
+            {return mid; }
+
+            else if(arr[mid]>x)
+            {return findFloor(  arr,   left,   mid-1,   x) ; }
+
+            else
+                {return findFloor(  arr,   mid+1,   right,   x) ;  }
+
+
+        }
+
+        return -1;
+    }
