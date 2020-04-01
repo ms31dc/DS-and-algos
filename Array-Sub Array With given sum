@@ -1,0 +1,23 @@
+static void subarraySum(int n, int s, int[] m) {
+
+    int sum=0;
+    int start=0;
+    int end=0;
+    boolean flag=false;
+
+    for(int i=0;i<n;i++){
+        sum=sum+m[i];
+
+    while(sum>s){
+
+        sum=sum-m[start];
+        start++;
+    }
+
+    if(sum==s){end=i; flag=true; break;}
+
+    }
+
+    if(flag){System.out.print((start+1) + " " + (end+1));}
+    else{System.out.print(-1);}
+}
