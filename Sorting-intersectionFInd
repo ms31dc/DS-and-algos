@@ -1,0 +1,17 @@
+static void intersectionFInd(int[] arrA,int[] arrB )
+{
+    int m=arrA.length;
+    int n= arrB.length;
+    int i=0; int j=0;
+    while(i<m && j<n)
+    {
+        if(i>0 && arrA[i]==arrA[i-1]){i++; continue;}
+        else if(arrA[i]>arrB[j]){j++;}
+        else if(arrB[j]>arrA[i]){i++;}
+        else {
+            System.out.print(arrA[i]+" ");
+            i++;j++; }
+
+
+
+    }
