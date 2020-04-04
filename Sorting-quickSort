@@ -1,0 +1,40 @@
+static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+static int   lumioto(int[] a, int low,int high  )
+{
+
+ int key=a[high];
+ int i=low-1;
+ for(int j=low;j<high;j++)
+ {
+     if(a[j]<=key)
+     {
+         i++;
+         swap(a,i,j);
+     }
+ }
+    swap(a,i+1,high);
+
+
+return (i+1);
+
+}
+
+static void quickSort(int[] arr, int low ,int high)
+{
+    if(low<high)
+    {
+        int parti = lumioto(arr,low,high);
+        quickSort(arr,low,parti-1);
+        quickSort(arr,parti+1,high);
+
+    }
+}
+    int  arrA[] = {8,4,7,9,3,10,5};
+
+    quickSort(arrA,0,arrA.length-1);
