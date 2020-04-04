@@ -1,0 +1,28 @@
+  static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+static void lumioto(int[] a, int n  )
+{
+
+ int key=a[n];
+ int i=-1;
+ for(int j=0;j<a.length-2;j++)
+ {
+     if(a[j]<key)
+     {
+         i++;
+         swap(a,i,j);
+     }
+
+
+ }
+    swap(a,i+1,n);
+
+
+
+
+}
