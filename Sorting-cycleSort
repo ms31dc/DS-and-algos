@@ -1,0 +1,31 @@
+static void cycleSort(int arr[],int n)
+    {
+        for(int cs =0;cs<n-1;cs++)
+        {
+            int pos=cs;
+            int item=arr[cs];
+            for(int j=cs+1;j<n;j++)
+            {
+                if(arr[j]<item)
+                {pos++;}
+            }
+             int temp=arr[pos];
+            arr[pos]=item;
+            item=temp;
+
+            while(pos!=cs)
+            {
+                pos=cs;
+
+                for(int j=cs+1;j<n;j++){if(arr[j]<item) {pos++;} }
+                int temp1=arr[pos];
+                arr[pos]=item;
+                item=temp1;
+
+
+            }
+
+
+        }
+
+    }
