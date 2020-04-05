@@ -1,0 +1,28 @@
+static void chocolateDistrib(int arr[],int n,int boys)
+    {
+        if(boys>n){
+            System.out.println("Non accaeptable");
+        }
+
+        Arrays.sort(arr);
+
+//        for (int i = 0; i < arr.length; i++)
+//        {
+//
+//                System.out.print(arr[i] + " ");
+//
+//        }
+
+        // 2,3,4,7,9,12,56
+        int res=0;
+        res=res+(arr[boys-1]-arr[0]);
+
+        for(int i=1;i<(n-boys+1);i++)
+        {
+            res=Math.min(res,arr[i+boys-1]-arr[i]);
+        }
+
+        System.out.println(res);
+
+
+    }
