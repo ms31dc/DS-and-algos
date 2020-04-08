@@ -1,0 +1,62 @@
+
+         static void sortABS(int arr[], int n,int k)
+    {
+      mergeSort(arr,0,n-1,k);
+        
+         for (int i = 0; i < arr.length; i++)
+        {
+
+                System.out.print(arr[i] + " ");
+
+        }
+
+    }
+    
+  static void mergeSort(int arr[] , int l, int h,int abs)
+  {
+
+      if(l<h) {
+          int m = (l + (h - l) / 2);
+          mergeSort(arr, l, m,abs);
+          mergeSort(arr, m + 1, h,abs);
+
+          merge(arr, l, m, h,abs);
+      }
+      
+        
+
+      
+  }
+
+    static void merge(int arr[] , int l, int m,int h,int abs)
+    {
+        int n1=m-l+1;
+        int n2=h-m;
+        int[] left = new int[n1];
+        int[] right = new int[n2];
+
+        for(int i=0;i<n1;i++)
+        {
+            left[i]=arr[l+i];
+
+        }
+        for(int j=0;j<n2;j++)
+        {
+            right[j]=arr[m+1+j];
+
+        }
+
+        int i =0;
+        int j=0;
+        int k=l;
+
+        while(i<n1 && j<n2)
+        {
+            if(Math.abs(left[i]-abs)<=Math.abs(right[j]-abs))
+            {arr[k++]=left[i++];}
+            else{arr[k++]=right[j++];}
+        }
+        while(i<n1){arr[k++]=left[i++];}
+        while(j<n2){arr[k++]=right[j++];}
+
+    }
