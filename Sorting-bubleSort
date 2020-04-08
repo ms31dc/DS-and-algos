@@ -1,0 +1,28 @@
+  static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+  //{319,21,6,8,100,50};
+
+    static void bubleSort(int arrA[],int k)
+    {
+
+        for(int i=0;i<k-1;i++)
+        {
+            boolean flag=false;
+            for(int j=0;j<k-i-1;j++)
+            {
+                if(arrA[j]>arrA[j+1])
+                {
+                    swap(arrA,j,j+1);
+                    flag=true;
+                }
+
+            }
+            if(flag==false){break;}
+
+        }
+
+    }
