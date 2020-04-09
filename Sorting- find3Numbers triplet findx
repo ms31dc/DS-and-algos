@@ -1,0 +1,22 @@
+public static int find3Numbers(int A[], int n, int x) { 
+    
+       //add your code here 
+       int res=0;
+        Arrays.sort(A);
+
+        for(int i=0;i<n-1;i++)
+        {
+            int l=i+1;
+            int r=A.length-1;
+            while(l<r)
+            {
+                if(A[i]+A[l]+A[r]==x){ res++;  return res; }
+
+                if(A[i]+A[l]+A[r]>x){r--;}
+                else{l++;}
+
+            }
+        }
+        return res;
+    
+    }
