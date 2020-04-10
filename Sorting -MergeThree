@@ -1,0 +1,41 @@
+class MergeThree
+{
+    // Function to merge three sorted arrays
+    // A[], B[], C[]: input arrays
+    static ArrayList<Integer> merge3sorted(int A[], int B[], int C[])
+    {
+          ArrayList<Integer> res = new ArrayList<Integer>();
+
+        int[] temp = new int[A.length+B.length];
+
+         merge(A,B,temp);
+
+        int[] out = new int[A.length+B.length+C.length];
+
+        merge(temp,C,out);
+
+        for (int i = 0; i < out.length; i++)
+            res.add(new Integer(out[i]));
+
+
+        return res;
+    }
+    
+    
+    static void merge(int a[],  int b[], int out[] )
+    {
+       int n1=a.length;
+       int n2=b.length;
+
+       int i=0,j=0,l=0;
+       while(i<n1 && j<n2)
+       {
+           if(a[i]<=b[j]){out[l++]=a[i++];}
+           else { out[l++]=b[j++]; }
+       }
+       while(i<n1){out[l++]=a[i++];}
+       while(j<n2){ out[l++]=b[j++]; }
+
+    }
+
+}
