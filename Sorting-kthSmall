@@ -1,0 +1,65 @@
+class GFG {
+	public static void main (String[] args)throws IOException
+	 {
+	 //code
+	 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	 int test=Integer.parseInt(br.readLine());
+	 for(int t=1;t<=test;t++)
+	 {
+	    int n=Integer.parseInt(br.readLine());
+	    String s[]=br.readLine().split(" ");
+	    int k=Integer.parseInt(br.readLine());
+	    int a[]=new int[s.length];
+	    for(int i=0;i<a.length;i++)
+	        a[i]=Integer.parseInt(s[i]);
+	    //inputs over
+	    //int kth=kthSmallest(a,0,a.length-1,k);
+	   /// Arrays.sort(a);
+	    ///int kth=a[k-1];
+	    System.out.println(kSmall(a,k));
+	 }
+	 }
+	 public static int kSmall(int arr[],int k)
+{
+    int l=0;int r=arr.length-1;
+
+        while(l<=r)////This is for the case when there are only two elements in the array and they ask you to find the 2nd smallest element
+        {
+            int p=lumioto(arr,l,r );
+            if((k-1)==p){ return arr[p];}
+            else if((k-1)<p) {r=p-1;}
+            else {l=p+1;}
+        }
+return -1;
+}
+ static int lumioto(int[] a, int low,int high )
+    {
+
+        int key=a[high];
+        int i=low-1;
+        for(int j=low;j<high;j++)
+        {
+            if(a[j]<key)
+            {
+                i++;
+                swap(a,i,j);
+            }
+
+
+        }
+        //System.out.println(i);
+        swap(a,i+1,high);
+        return (i+1);
+    }
+    
+     static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+
+
+
+}
