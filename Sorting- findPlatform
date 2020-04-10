@@ -1,0 +1,23 @@
+static int findPlatform(int arr[], int dep[], int n)
+    {
+        // add your code here
+        Arrays.sort(arr);
+        Arrays.sort(dep);
+
+        int plat=1;
+        int req=1;
+
+       int i=1;
+       int j=0;
+
+       while(i<arr.length && j<dep.length)
+       {
+           if(arr[i]>dep[j]){plat--;j++;}
+           else {plat++;i++;}
+           req=Math.max(req,plat);
+       }
+
+
+
+        return req;
+    }
