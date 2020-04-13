@@ -1,0 +1,42 @@
+ void findNthNode(int k)///Naive
+    {
+       int len=0;
+       for(Node cur=head;cur!=null;cur=cur.next)
+       {
+        len++;
+
+       }
+
+       if(len<k){return ;}
+
+       Node cur=head;
+
+       for(int i=0;i<len-k+1;i++)
+       {cur=cur.next;}
+        System.out.println("\n");
+        System.out.println(cur.data);
+    }
+    void findNthNode(int k)////Pro-level
+    {
+
+
+       Node first=head,second=head;
+
+       for(int i=0;i<k;i++)
+       {
+           if (second==null){return;}
+           second=second.next;
+       }
+
+
+       while(  second!=null)
+       {
+           first=first.next;
+           second=second.next;
+
+       }
+        System.out.println("\n");
+
+        System.out.println(first.data);
+
+    }
