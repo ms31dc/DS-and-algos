@@ -1,0 +1,44 @@
+
+    Node reverseLinked( )
+    {
+
+        Node prev=null;///You can only initialize this no need to be present in the node
+        Node cur=head;
+        while(cur!=null)
+        {
+            Node next=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=next;
+
+        }
+      return prev;
+
+
+    }
+      void printElementsMod(Node n)
+    {
+        Node curr=n;
+
+
+        while(curr !=null)
+        {
+            System.out.print(curr.data+" ");
+            curr=curr.next;
+        }
+
+    }
+    
+    
+    //main
+      List l = new List();
+        l.BeginFirstList(2);
+
+        l.addEnding(111);
+        l.addEnding(123);
+        l.addEnding(124);
+        l.printElements();
+        System.out.println("\n");
+       ;
+        System.out.println("\n");
+        l.printElementsMod(  (l.reverseLinked()) );
