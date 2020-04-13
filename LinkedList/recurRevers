@@ -1,0 +1,173 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.awt.Point;
+
+import static java.lang.StrictMath.*;
+
+import java.util.ArrayList;
+
+// Solution structure
+//{55,77,88,99,99,888,1233};
+//10 ,5, 3 ,9, 2
+
+class Node
+{
+    int data;
+    Node next; ///next or any references are initially null , any kind of references are null
+    //But you can modify it later.
+    Node(int val){ data = val;}
+    Node(){}
+
+}
+
+
+class List
+{
+    Node head;//This is initially null
+
+    void BeginFirstList(int x)
+    {
+        Node curr_List= new Node( x);
+        curr_List.next=head;
+        head=curr_List;
+
+    }
+
+    void addEnding(int x){
+
+        Node new_user =new Node(x);
+
+        if(head==null){  new_user.next=null; head=new_user; return; }////If you dont return the list is populated and will keep getting
+        //populated
+
+        Node curr=head;
+
+        while(curr.next!=null)
+        {
+            curr=curr.next;
+        }
+        curr.next=new_user;
+
+    }
+
+    void printElements()
+    {
+        Node curr=head;
+
+
+        while(curr !=null)
+        {
+            System.out.print(curr.data+" ");
+            curr=curr.next;
+        }
+
+    }
+
+    void printElementsMod(Node n)
+    {
+        Node curr=n;
+
+
+        while(curr !=null)
+        {
+            System.out.print(curr.data+" ");
+            curr=curr.next;
+        }
+
+    }
+
+    void printMiddle()
+    {
+        if(head==null  ){///head himslef is null so you cannot access head.next
+            System.out.print("null");
+            return;
+        }
+
+        Node slow =head;
+        Node fast=head;
+
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println("\n");
+        System.out.println(slow.data);
+
+
+    }
+
+    Node recurRevers( Node head)
+    {
+        if(head==null || head.next==null){return head;}
+///the above is the base case and the corner case for null list and a ll of size 1;
+        Node rest_head=recurRevers(head.next);
+        Node rest_tail=head.next;
+        rest_tail.next=head;
+        head.next=null;
+        return rest_head;
+
+    }
+
+
+
+}
+
+
+class Main {
+    static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+        public static void main(String args[])
+    {
+        List l = new List();
+        l.BeginFirstList(2);
+
+
+        l.addEnding(111);
+        l.addEnding(123);
+        l.addEnding(124);
+        l.printElements();
+        System.out.println("\n");
+
+
+      l.printElementsMod(   l.recurRevers(l.head)  );
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Return True if the given number is a lucky number else return False
+
+
+
+
+
+
+
+
