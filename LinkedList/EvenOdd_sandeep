@@ -29,3 +29,25 @@
             return evnStart;
 
             }
+              public static void main(String args[])
+    {
+
+        Main list = new Main();
+        list.head = new Node(3);
+        list.head.next = new Node(120);
+        list.head.next.next = new Node(5);
+        list.head.next.next.next = new Node(5);
+        list.head.next.next.next.next = new Node(2);
+        list.head.next.next.next.next.next = new Node(1);
+        list.head.next.next.next.next.next.next = new Node(44);
+
+        // Creating a loop for testing
+        //head.next.next.next.next.next = head.next.next;
+//8 120 18 5 4 1 63
+     // list.dectectRemove(head);
+     // System.out.println("Linked List after removing loop : ");
+        list.printList(head);
+        System.out.println("\n");
+        System.out.println("Sandeep's is ");
+        list.printList( list.EvenOdd_sandeep(head) );
+        }
