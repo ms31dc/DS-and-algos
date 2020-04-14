@@ -1,0 +1,20 @@
+void   evenAndOdd(Node n)//// Doesnt maintain stability 
+            {
+                Node first=n;
+                Node second=n.next ;
+
+                while(second!=null &&  first!=null  )
+                {
+                    if((second.data% 2==0) && (first.data%2!=0) ){int temp=0;
+                    temp=first.data;
+                    first.data=second.data;
+                    second.data=temp;
+                        first=first.next;
+                        second=second.next;
+                    }
+                    else if((first.data%2!=0) && (second.data% 2!=0)  ){second=second.next;}
+                    else  { first=first.next;
+                        second=second.next;}
+                }
+
+            }
