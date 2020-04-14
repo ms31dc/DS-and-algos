@@ -1,0 +1,31 @@
+   Node EvenOdd_sandeep(Node head)
+            {
+            Node evnStart=null,evenEnd=null,oddStart=null,oddEnd=null;
+            for(Node cur=head;cur!=null;cur=cur.next)
+            {
+                int x= cur.data;
+
+                if(x%2==0){
+                    if(evnStart==null){evnStart=cur;
+                    evenEnd=evnStart;}
+                    else{evenEnd.next=cur; evenEnd=evenEnd.next;}
+
+                }
+                else{
+                    if(oddStart==null){oddStart=cur;
+                        oddEnd=oddStart;}
+                    else{oddEnd.next=cur; oddEnd=oddEnd.next;}
+
+                }
+            }
+
+            if(oddStart == null || evnStart==null)
+            {
+                return head;
+            }
+
+            evenEnd.next=oddStart;
+            oddEnd.next=null;
+            return evnStart;
+
+            }
