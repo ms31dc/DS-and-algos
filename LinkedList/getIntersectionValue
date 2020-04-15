@@ -1,0 +1,177 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.awt.Point;
+
+import static java.lang.StrictMath.*;
+
+import java.util.ArrayList;
+
+// Solution structure
+//{55,77,88,99,99,888,1233};
+//10 ,5, 3 ,9, 2
+
+// Java program to detect and remove loop in linked list
+
+
+
+
+    class Main {
+
+
+            static Node head1,head2;
+
+            static class Node {
+
+                int data;
+                Node next;
+
+                Node(int d) {
+                    data = d;
+                    next = null;
+                }
+            }
+
+            // Function that detects loop in the list
+
+
+            // Function to print the linked list
+            void printList(Node node) {
+                while (node != null) {
+                    System.out.print(node.data + " ");
+                    node = node.next;
+                }
+            }
+
+
+/////////////1 2 3 4 5 check this when tyou are free
+//        void   evenAndOdd(Node n)//// Doesnt maintain stability
+//            {
+//                Node first=n;
+//                Node second=n.next ;
+//
+//                while(second!=null &&  first!=null  )
+//                {
+//                    if((second.data% 2==0) && (first.data%2!=0) ){int temp=0;
+//                    temp=first.data;
+//                    first.data=second.data;
+//                    second.data=temp;
+//                        first=first.next;
+//                        second=second.next;
+//                    }
+//                    else if((first.data%2!=0) && (second.data% 2!=0)  ){second=second.next;}
+//                    else  { first=first.next;
+//                        second=second.next;}
+//                }
+//
+//            }
+static  boolean getIntersectionValue(int d,Node h1, Node h2 )
+{
+    Node cur1=h1;
+    Node cur2=h2;
+        for(int i=0;i<d;i++)
+        {
+            if(cur1==null){return false;}///incase it is not a Intersection linked list
+        cur1=cur1.next;
+
+        }
+
+
+        while(cur1!=null && cur2!=null)
+        {
+            if(cur1.data==cur2.data){return true;}
+            else{
+                cur1=cur1.next;
+                cur2=cur2.next;
+            }
+
+        }
+
+    return false;
+}
+
+        static boolean intersectionOfNode(Node h1, Node h2)
+        {
+            int len1=0;
+            int len2=0;
+
+            for(Node cur=h1;cur!=null;cur=cur.next)
+            {
+                len1=len1+1;
+            }
+            for(Node cur=h2;cur!=null;cur=cur.next)
+            {
+                len2=len2+1;
+            }
+            ///System.out.println(len1+" "+ len2);
+          int absres=Math.abs((len1-len2));
+
+           if(len1>len2)
+           {
+                return getIntersectionValue(absres,  h1,   h2);
+
+           }
+           else{
+
+               return getIntersectionValue(absres,  h2,   h1);
+           }
+
+
+
+        }
+
+
+     static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+        public static void main(String args[])
+    {
+
+        Main list = new Main();
+
+        // creating first linked list
+        list.head1 = new Node(3);
+        list.head1.next = new Node(6);
+        list.head1.next.next = new Node(9);
+        list.head1.next.next.next = new Node(15);
+        list.head1.next.next.next.next = new Node(30);
+
+        // creating second linked list
+        list.head2 = new Node(10);
+        list.head2.next = new Node(15);
+        list.head2.next.next = new Node(30);
+
+        System.out.println(intersectionOfNode(head1,head2));
+
+        // Creating a loop for testing
+        //head.next.next.next.next.next = head.next.next;
+//8 120 18 5 4 1 63
+     // list.dectectRemove(head);
+     // System.out.println("Linked List after removing loop : ");
+       // list.printList(head);
+       // System.out.println("\n");
+      //  System.out.println("Sandeep's is ");
+
+      //  System.out.println("Sai's is ");
+       // list.evenAndOdd(head)  ;
+      //  list.printList(head);
+       // 3 120 5 5 2 1 44
+//       120 2 44 3 5 5 1
+//        boolean found = list.detectLoop(head);
+//        if (found)
+//            System.out.println("Loop Found");
+//        else
+//            System.out.println("No Loop");
+
+    }
+}
