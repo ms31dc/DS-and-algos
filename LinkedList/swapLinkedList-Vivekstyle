@@ -1,0 +1,82 @@
+
+    class Main {
+
+
+            static Node head ;
+
+            static class Node {
+
+                int data;
+                Node next;
+
+                Node(int d) {
+                    data = d;
+                    next = null;
+                }
+            }
+
+
+            // Function to print the linked list
+            void printList(Node node) {
+                while (node != null) {
+                    System.out.print(node.data + " ");
+                    node = node.next;
+                }
+            }
+
+
+            Node swapLinkedList(Node n)
+            {
+                Node p=head;
+                if(p==null){return head;}
+                if(p.next==null){return head;}
+
+                Node New_head=p.next;
+
+                while(1==1)
+                {
+                    Node q=p.next;
+                    Node temp=q.next;
+                    q.next=p;
+                   if(temp==null || temp.next==null)
+                   {
+                       p.next=temp;
+                       return New_head;////Fucking return state ment else this loop will not end
+                   }
+                    p.next=temp.next;
+                    p=temp;
+
+                }
+
+
+            }
+
+
+     static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+        public static void main(String args[])
+    {
+
+        Main list = new Main();
+
+        // creating first linked list
+        list.head = new Node(3);
+        list.head.next = new Node(6);
+        list.head.next.next = new Node(9);
+        list.head.next.next.next = new Node(15);
+        list.head.next.next.next.next = new Node(30);
+        list.head.next.next.next.next.next = new Node(222);
+
+        list.printList(head);
+
+        System.out.println("\n"+ "we do our magic");
+        list.printList(list.swapLinkedList(list.head));
+    
+
+    }
+}
