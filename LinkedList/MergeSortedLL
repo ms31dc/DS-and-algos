@@ -1,0 +1,137 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.awt.Point;
+
+import static java.lang.StrictMath.*;
+
+import java.util.ArrayList;
+
+// Solution structure
+//{55,77,88,99,99,888,1233};
+//10 ,5, 3 ,9, 2
+
+// Java program to detect and remove loop in linked list
+
+
+
+
+    class Main {
+
+
+            static Node head ,head2;
+
+            static class Node {
+
+                int data;
+                Node next;
+
+                Node(int d) {
+                    data = d;
+                    next = null;
+                }
+            }
+
+
+            // Function to print the linked list
+            void printList(Node node) {
+                while (node != null) {
+                    System.out.print(node.data + " ");
+                    node = node.next;
+                }
+            }
+
+
+
+
+        public void addToTheLast(Node node)
+        {
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                    temp = temp.next;
+                temp.next = node;
+            }
+        }
+
+
+
+        Node mergeNodes(Node head , Node head2)
+        {
+            Node p=head;
+            Node q=head2;
+            Node s=null;
+
+            if(p==null) {return q;}
+            if(q==null) {return p;}
+
+            if(p!=null && q!=null)
+            {
+                if(p.data<=q.data){s=p;p=p.next; }
+                else{s=q;q=q.next;}
+            }
+            Node new_head=s;
+
+            while(p!=null && q!=null)
+            {
+                if(p.data<=q.data){s.next=p;s=p;p=p.next;}
+                else{s.next=q;s=q;q=q.next;}
+            }
+            if(p==null){s.next=q;}
+            if(q==null){s.next=p;}
+
+        return new_head;
+        }
+
+     static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+        public static void main(String args[])
+    {
+        Main list = new Main();
+
+        // creating first linked list
+        list.head = new Node(3);
+        list.head.next = new Node(6);
+        list.head.next.next = new Node(9);
+        list.head.next.next.next = new Node(15);
+        list.head.next.next.next.next = new Node(30);
+        list.head.next.next.next.next.next = new Node(222);
+
+        Main list2 = new Main();
+
+        // creating first linked list
+        list2.head2 = new Node(1);
+        list2.head2.next = new Node(2);
+        list2.head2.next.next = new Node(10);
+        list2.head2.next.next.next = new Node(14);
+        list2.head2.next.next.next.next = new Node(35);
+        list2.head2.next.next.next.next.next = new Node(223);
+
+        list.printList(head);
+        System.out.println("\n");
+        list.printList(head2);
+
+        System.out.println("\n"+"merged Sorted is ");
+        list.printList(list.mergeNodes(head,head2));
+
+
+
+    }
+}
+ 
