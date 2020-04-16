@@ -1,0 +1,26 @@
+Node removeDuplicates(Node root)
+    {
+	// Your code here
+	 Node new_head=root;
+	 
+	 Node a=root;
+	 while(a!=null)
+	 {
+	     Node b=a.next;
+	     if(b==null){return new_head;}
+	     else if(a.data==b.data)
+	     {
+	         while(1==1){
+	             if((b==null)|| (a.data!=b.data) )
+	             {a.next=b;break;}
+	             else {b=b.next;}
+	             
+	         }
+	       
+	     }
+	       a=a.next;
+	    
+	 }
+
+	return new_head;
+    }
