@@ -1,0 +1,24 @@
+class Solution {
+    
+    public Node insertInMid(Node head, int data){
+        //Insert code here, return the head of modified linked list
+        
+        Node slow=head;
+        Node fast=slow.next;
+        
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        
+        Node toInsert= new Node(data);
+        Node temp=slow.next;
+        slow.next=toInsert;
+        toInsert.next=temp;
+        
+        return head;
+        
+        
+    }
+}
