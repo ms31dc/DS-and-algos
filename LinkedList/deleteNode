@@ -1,0 +1,13 @@
+  void deleteNode(Node node)
+    {
+         // Your code here
+         
+         Node cur=node;
+         Node adjacent=cur.next;
+         
+         cur.data=adjacent.data;
+         Node toCOnnect=adjacent.next;
+         cur.next=toCOnnect;
+         adjacent.next=null;
+         
+    }
