@@ -1,0 +1,34 @@
+class Loop
+{
+    
+    int loopLength(Node head)
+    {
+        Node temp=head.next;
+        
+        int valu=1;
+        while(temp!=head)
+        {
+            valu=valu+1;
+            temp=temp.next;
+        }
+        return valu;
+        
+    }
+    
+    int countNodesinLoop(Node head)
+    {
+	    Node slow=head;
+         Node fast=head;
+         
+         while(fast!=null && fast.next!=null)
+         {
+             slow=slow.next;
+             fast=fast.next.next;
+             
+             if(slow==fast){return loopLength( slow);}
+             
+             
+         }
+         return 0;
+    }
+}
