@@ -1,0 +1,30 @@
+class Rotate {
+    
+     /*  This function should rotate list counter-
+    clockwise by k and return new head (if changed) */
+    public Node rotate(Node head, int k) {
+         
+            int c=k-1;
+
+            int len=0;
+            for(Node cur=head;cur!=null;cur=cur.next){len++;}
+            if(k>=len){return head;}
+
+          Node rStart=head;
+
+          Node rEnd=head;
+          while(rEnd.next!=null){rEnd=rEnd.next;}
+
+          Node pEnd=head;
+
+          for(int i=0;i<c;i++){ pEnd=pEnd.next;  }
+
+          Node pstart=pEnd.next;
+           // System.out.println("rStart- "+rStart.data +" rEnd- " +rEnd.data +" pstart- "+ pstart.data+ " pEnd- "+pEnd.data);
+
+            rEnd.next=rStart;
+            pEnd.next=null;
+
+            return pstart;
+    }
+}
