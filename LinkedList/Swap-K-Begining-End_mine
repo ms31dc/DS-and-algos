@@ -1,0 +1,71 @@
+Node swapkthnode(Node head, int num, int K)
+        {
+            // if(K>num){return;}
+            //   1.for corner elements of start and end
+            //   2.if the node is same for beginng and ending
+            //   3.if start and end are not above make a common case.
+
+
+
+            //Node end=slow;
+
+
+            if(K>num){return head;}
+
+             if(K==1 || K==num)
+             {
+                 Node start=head;
+
+                  Node fast=head;
+                 Node slow=head;
+                 for(int i=0;i<1;i++){fast=fast.next;}
+                 while(fast.next!=null){slow=slow.next;fast=fast.next;}
+
+                 Node temp=slow.next;
+                 Node temptwo=start.next;
+
+                 slow.next=start;
+                 start.next=null;
+                 fast.next=temptwo;
+
+                 return fast;
+             }
+
+             else{
+                 Node start=head;   Node Sprev=null;
+                 for(int i=1;i<K;i++){Sprev=start ; start=start.next;}
+
+                 Node fast=head;
+                 Node slow=head;
+
+                 Node Send=null;
+                 Node end=head;
+                 for(int i =1 ; i<num-K+1;i++){ Send=end;end=end.next; }
+                /// System.out.println("start  "+start.data+" prev is "+Sprev.data+" Send  is "+Send.data  +" End is "+end.data);
+                 if(start==end){return head;}
+                // System.out.println("start  "+start.data+" prev is "+Sprev.data+" Send  is "+Send.data  +" End is "+end.data);
+
+                 Node Atemp=Sprev.next;
+                 Node Btemp=start.next;
+                 Node Ctemp=end.next;
+                 Node Dtemp=Send.next;
+
+                 Sprev.next=end;
+
+
+                 end.next=Btemp;
+
+                  Btemp.next=start;
+                  start.next=Ctemp;
+
+
+
+                 return head;
+
+             }
+
+
+
+
+
+        }
