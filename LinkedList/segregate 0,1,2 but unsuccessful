@@ -1,0 +1,66 @@
+  static Node segregate(Node head)
+        {  // add your code here
+            Node cur=head;
+            Node end=head;
+            // Node prevEnd=null;
+
+
+            while(end.next!=null){                end=end.next;            }
+            //prevEnd = end;
+
+
+            Node prev=null;
+
+            if(cur.data==0){  prev=cur; cur=cur.next;}
+            else{
+                prev=null;
+            }
+
+            while(cur!=null)
+            {
+                if(cur.data==0)
+                {
+                  try{  Node tempA=prev.next;}
+                  catch(Exception e){prev=cur; cur=cur.next;}
+
+
+                    Node tempB=cur.next;
+
+                    prev.next=tempB;
+                    cur.next=head;
+                    head=cur;
+                    cur=prev.next;
+
+                }
+                else if(cur.data==2)
+                {
+                    if(prev==null)
+                    {Node tempA=cur.next;
+                        head=cur.next;
+                        end.next=cur;
+                        cur.next=null;
+                        cur=tempA;
+                    }
+                    else{
+                        Node tempA=cur.next;
+                        if(tempA==null){return head;}
+                        prev.next=tempA;
+                        end.next=cur;
+                        cur.next=null;
+                      cur=tempA;
+                        //prev=cur;
+                       // cur=tempA.next;
+
+                    }
+
+
+                }
+                else if(cur.data==1){
+                    prev=cur;
+                    cur=cur.next;
+                }
+            }
+            return head;
+
+
+        }
