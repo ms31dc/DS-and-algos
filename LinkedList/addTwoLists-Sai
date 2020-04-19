@@ -1,0 +1,195 @@
+package com.company;
+import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.awt.Point;
+
+import static java.lang.StrictMath.*;
+
+import java.util.ArrayList;
+
+// Solution structure
+//{55,77,88,99,99,888,1233};
+//10 ,5, 3 ,9, 2
+
+// Java program to detect and remove loop in linked list
+
+
+
+
+    class Main {
+
+
+            static Node head ,head2;
+
+            static class Node {
+
+                int data;
+                Node next;
+
+                Node(int d) {
+                    data = d;
+                    next = null;
+                }
+            }
+
+
+            // Function to print the linked list
+            void printList(Node node) {
+                while (node != null) {
+                    System.out.print(node.data + " ");
+                    node = node.next;
+                }
+            }
+
+
+
+
+        public void addToTheLast(Node node)
+        {
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                    temp = temp.next;
+                temp.next = node;
+            }
+        }
+
+
+
+
+
+
+
+        static void swap(int[] a, int src,int dest)
+    {
+        int temp=a[src];
+        a[src]=a[dest];
+        a[dest]=temp;
+    }
+
+
+
+        Node addTwoLists(Node first, Node second) {
+
+                ///First im getting the size of both LL so i need to add zero if necessary
+            int n1=1;
+            Node h1=first;
+
+            while(h1.next!=null){n1++; h1=h1.next; }
+            // Your code here
+            int n2=1;
+            Node h2=second;
+
+            while(h2.next!=null){n2++; h2=h2.next; }
+            int m =Math.abs(n2-n1);
+//             System.out.println("len1 "+n1+ "h1 is "+h1.data);
+
+            if(n1>n2){
+                for(int i=0;i<m;i++){Node ending=new Node(0);
+                    h2.next=ending;
+                    ending.next=null;
+                    h2=ending;
+                }
+            }
+            else if(n2>n1) {
+                for (int i = 0; i < m; i++) {
+                    Node ending = new Node(0);
+                    h1.next = ending;
+                    ending.next = null;
+                    h1 = ending;
+                }
+            }
+            else {}
+
+            ////The above adds zero
+
+//             printList(first);
+//            printList(second);
+
+            ///Creating a new LL to store answers.
+            Node resDummy=new Node(0);
+
+            Node res=resDummy;
+            int add;
+
+            int carry =0;
+
+            while((first!=null && second!=null) || carry!=0   )
+            {
+                int a;
+                int b;
+               if(first==null && second==null){a=0;b=0;}
+               else{
+                  a=first.data;
+                  b=second.data;}
+
+
+                  add =a+b+carry;
+
+                  if((add/10)==0)////If there is no carry
+                  {
+                      Node answer=new Node(add);
+                      res.next=answer;
+                      res=res.next;
+                      res.next=null;
+                      carry=0;
+
+                  }
+                  else if((add/10)!=0)//If there is a carry
+                  {
+                      int div=add/10;
+                      int remind=add%10;
+
+                      Node answer=new Node(remind);
+                      res.next=answer;
+                      res=res.next;
+                      res.next=null;
+
+                      carry=div;
+                  }
+
+
+
+                first=first.next;
+                second=second.next;
+            }
+
+                return resDummy.next;
+//            return head;
+        }
+
+
+
+        public static void main(String args[])
+    {
+        Main list = new Main();
+
+        // creating first linked list
+        list.head = new Node(5 );
+        list.head.next = new Node(4);
+        list.head.next.next = new Node(3 );
+ 
+
+        Main list2 = new Main();
+
+        // creating first linked list
+        list2.head2 = new Node(5);
+        list2.head2.next = new Node(4);
+ 
+
+        list.printList( list.addTwoLists(head,head2));
+ 
+
+    }
+} 
