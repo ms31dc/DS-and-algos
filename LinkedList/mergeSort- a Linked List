@@ -1,0 +1,61 @@
+class LinkedList
+{
+    static Node mergeSort(Node head)
+    {
+        if(head==null || head.next==null)
+            {return head;}
+
+            Node mid=getMiddle(head);///MIddle function is a bit cracky if the list is 1->2->null , te middle element here is 1 , so
+            //so the condition is that fast.next!=null && fast.next.next!=null;, in sorting algorithms whenever there is a null head then return head.
+
+            Node midOfNext=mid.next;
+            mid.next=null;
+
+            Node left=mergeSort(head);
+            Node right=mergeSort(midOfNext);
+
+            Node res=sortedMerge(left,right);
+
+            return res;
+    }
+    public static Node getMiddle(Node head)
+        {
+            if(head==null) {return head;}
+
+            Node slow=head,fast=head;
+            while(fast.next!=null && fast.next.next!=null)
+            {
+                slow=slow.next;
+                fast=fast.next.next;
+            }
+
+            return slow;
+
+        }
+        static Node sortedMerge(Node a, Node b)
+        {
+            Node p=a;
+            Node q=b;
+            Node s=null;
+
+            if(p==null) {return q;}
+            if(q==null) {return p;}
+
+            if(p!=null && q!=null)
+            {
+                if(p.data<=q.data){s=p;p=p.next; }
+                else{s=q;q=q.next;}
+            }
+            Node new_head=s;
+
+            while(p!=null && q!=null)
+            {
+                if(p.data<=q.data){s.next=p;s=p;p=p.next;}
+                else{s.next=q;s=q;q=q.next;}
+            }
+            if(p==null){s.next=q;}
+            if(q==null){s.next=p;}
+
+            return new_head;
+        }
+}
