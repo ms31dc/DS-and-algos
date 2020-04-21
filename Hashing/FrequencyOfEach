@@ -1,0 +1,24 @@
+    class Main {
+        public static void main(String args[])
+    {
+        Main list = new Main();
+        int a[]= {1,2,3,4,5,2,3,1,5,99};
+
+        HashMap<Integer,Integer> hs= new HashMap<Integer,Integer>(6);
+
+        for(int i=0;i<a.length;i++){
+
+            if( hs.containsKey(a[i])){
+            hs.put(a[i], hs.get(a[i])+1  );}
+            else  {hs.put(a[i],  1);}
+
+            }
+
+        for (Map.Entry<Integer,Integer> entry : hs.entrySet())
+            System.out.println("Key = " + entry.getKey() +
+                    ", Value = " + entry.getValue());
+
+
+
+    }
+}
