@@ -1,3 +1,7 @@
+   //TO check if a zero sum exists.
+//    1.There might be a real 0 in the array.
+//        2.Only one case prefix sum cannot handle is  like 1 2 -3 ps=1,3,0, beacue of pf we get a zero.
+//        3.Last is prefix mehod of finding if a repeat element appears
  public static void main(String args[])
     {
         Main list = new Main();
