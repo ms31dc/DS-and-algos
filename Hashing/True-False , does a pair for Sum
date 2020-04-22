@@ -1,0 +1,28 @@
+
+class Main {
+    public static void main(String args[])
+    {
+        Main list = new Main();
+        int a[]= {1,2,3,4,5,16,3,1,5,99};
+        int sum=18;
+
+        HashSet<Integer> hs= new HashSet<Integer>(6);
+        boolean flag=false;
+
+        for(int i=0;i<a.length;i++){
+
+           if(hs.contains(sum-a[i])){flag=true;}
+
+           if(flag==true){break;}
+
+               hs.add(a[i]);
+        }
+
+
+
+
+        System.out.println(flag);
+
+
+    }
+}
