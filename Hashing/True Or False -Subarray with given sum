@@ -1,0 +1,26 @@
+  public static void main(String args[])
+    {
+        Main list = new Main();
+        int a[]= {5,8,6,13,3,-1};
+        ///5,13,19,32,35,34
+        int sum=22;
+
+        HashSet<Integer> hs= new HashSet<Integer>(6);
+
+        int preixSum=0;
+        boolean flag=false;
+
+        for(int i=0;i<a.length;i++)
+        {
+          preixSum=preixSum+a[i];
+
+         if(a[i]==sum || preixSum==sum ||hs.contains(preixSum-sum) )
+          {flag= true; break;}
+
+          else
+            hs.add(preixSum);
+      System.out.println(flag);
+
+
+    }
+}
