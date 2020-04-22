@@ -1,0 +1,26 @@
+  class Main {
+        public static void main(String args[])
+    {
+        Main list = new Main();
+        int a[]= {1,2,3,4,5,2,3,1,5,99};
+        int  b[]= {99,1,5,5};
+
+        HashSet<Integer> hs= new HashSet<Integer>(6);
+
+        for(int i=0;i<a.length;i++){
+
+            hs.add(a[i]);
+
+            }
+int res=0;
+        for(int i=0;i<b.length;i++){
+
+            if( hs.contains(b[i]) ) { res++; hs.remove(b[i]); }
+
+        }
+
+
+        System.out.println(hs.size());
+
+
+    }
