@@ -1,0 +1,49 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+	StringBuilder sb = new StringBuilder();
+	Scanner in = new Scanner (System.in);
+	int T = in.nextInt();
+	while(T-->0){
+	    int N = in.nextInt();
+	    int M = in.nextInt();
+	    int A[] = new int[N];
+	    int B[] = new int[M];
+	    for(int i = 0 ;i<N;i++)
+	        A[i] = in.nextInt();
+	    for(int i = 0; i<M;i++)
+	        B[i] = in.nextInt();
+	    sb.append(""+IntersectionOfTwoArrays(A, N, B, M)+"\n");
+	}
+	System.out.print(sb);
+}
+
+
+public static int IntersectionOfTwoArrays(int A[],int nA, int B[], int nB){
+     int count=0;
+		    HashSet<Integer> hs =new HashSet<Integer>();
+		    
+		    for(int i=0;i<nA;i++)
+		    {
+		        hs.add(A[i]);
+		    }
+		    
+		      for(int i=0;i<nB;i++)
+		    {
+		        if(hs.contains(B[i]) == true)
+		        {hs.remove(B[i]); count=count+1;}
+		    }
+		    
+		     
+		    return(count);
+}
+
+
+
+
+}
