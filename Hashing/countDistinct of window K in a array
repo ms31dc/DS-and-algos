@@ -1,0 +1,41 @@
+class Main {
+    //if a longest subarray with given sum  .
+// 1. find it the sum excists nbomally
+    //Mow insert into a HM the left most non repeating element wiht the follwoing
+    //3.check if the value exists , then subtract i with the repeating element in HM
+    static void countDistinct(int arr[], int k) {
+        int n=arr.length;
+
+        HashMap<Integer,Integer> hm= new HashMap<Integer,Integer>();
+        int dis_count=0;
+       for(int i=0;i<k;i++)
+       {
+           if(hm.get(arr[i])==null){hm.put(arr[i],1); dis_count++;}
+           else{int count=hm.get(arr[i]); hm.put(arr[i],count+1);}
+       }
+        System.out.println(dis_count);
+
+       for(int i=k;i<n;i++)
+       {
+           if(hm.get(arr[i-k])==1 ){hm.remove(arr[i-k] ); dis_count=dis_count-1; }
+           else{int count=hm.get(arr[i-k]);   hm.put(arr[i-k], count-1); }
+
+
+           if(hm.get(arr[i])==null ){hm.put(arr[i],1 ); dis_count= dis_count+1; }
+           else{int count=hm.get(arr[i]);   hm.put(arr[i], count+1); }
+
+           System.out.println(dis_count);
+
+       }
+
+    }
+
+        public static void main(String args[])
+    {
+        int arr[] =  {1, 2, 1, 3, 4, 2, 3};
+        int k = 4;
+        countDistinct(arr, k);
+
+    }
+
+    }
