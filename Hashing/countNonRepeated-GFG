@@ -1,0 +1,26 @@
+class Hashing
+{
+    // Function to count non-repeated elements in the array
+    // arr[]: input array
+    // n: size of array
+    static long countNonRepeated(int arr[], int n)
+    {
+        HashMap<Integer,Integer> hm =new HashMap<Integer,Integer>();
+
+        for(int i=0;i<n;i++)
+        {
+            if(hm.get(arr[i])==null){hm.put(arr[i],1);  }
+            else{int count=hm.get(arr[i]);   hm.put(arr[i], count+1 ); }
+        }
+        //  else{hm.remove(arr[i]); }
+        // return hm.size();
+        long res=0;
+
+        for(Map.Entry<Integer,Integer> entr : hm.entrySet())
+        {
+            if(entr.getValue()==1){res=res+1;}
+        }
+
+        return res;
+    }
+}
