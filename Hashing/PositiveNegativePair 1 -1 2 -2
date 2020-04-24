@@ -1,0 +1,22 @@
+ public static String PositiveNegativePair(int arr[], int n){
+        String str="";
+
+        TreeSet<Integer> ts=new TreeSet<>();
+
+        for(int i=0;i<n;i++)
+        { ts.add(arr[i]);}
+
+        for(Integer I : ts)
+        {
+            if(I>0){return str.isEmpty()? "0" : str;}
+            else if(ts.contains(-I))
+            {
+                str=" "+(-I)+" "+(I)+str;
+            }
+
+
+        }
+
+        return "0";
+
+    }
