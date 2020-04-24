@@ -1,0 +1,35 @@
+ static void winner(String arr[], int n)  {
+        HashMap<String, Integer> lhm = new HashMap<String, Integer>();
+        int flag = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (lhm.get(arr[i]) == null) {
+                lhm.put(arr[i], 1);
+            } else {
+                int count = lhm.get(arr[i]);
+                lhm.put(arr[i], count + 1);
+                flag = flag + 1;
+
+            }
+        }
+
+        int rank=0;
+        String winner="";
+            for(Map.Entry<String,Integer> entry : lhm.entrySet())
+            {
+                if(entry.getValue()>rank)
+                {
+                    rank=entry.getValue();
+                    winner=entry.getKey();
+                }
+                else if(entry.getValue()==rank)
+                {
+                    if(   winner.compareTo(entry.getKey())>0   ){winner=entry.getKey();}
+                }
+            }
+
+        System.out.println(winner+" "+rank);
+
+
+
+    }
