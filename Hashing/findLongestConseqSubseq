@@ -1,0 +1,33 @@
+class Subseq
+{   
+    // Function to find Longest Consecutive Subsequence
+	static int findLongestConseqSubseq(int a[], int n)
+	{
+	     int res=0;
+       
+        HashSet<Integer> hs =new HashSet<>();
+
+        for(int i=0;i<n;i++)
+        {
+            hs.add(a[i]);
+        }
+
+
+
+        for(Integer I :hs)
+        { int count=1;
+
+            if(hs.contains(I-1)==true){continue;}
+            else {
+                int no=I+1;
+                while(hs.contains(no)==true)
+                            {
+                                count=count+1;
+                                no=no+1;
+                            }
+            }
+            res=Math.max(res,count);
+        }
+        return res;
+	}
+}
