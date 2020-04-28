@@ -1,0 +1,31 @@
+
+    static boolean saiFeatRabinCarp(String pat, String txt)
+    {
+        // Your code here
+        int sciPat=0;
+        for(int i=0;i<pat.length();i++)
+        {
+            sciPat=sciPat+pat.charAt(i);
+        }
+
+        int txtPat=0;
+        for(int i=0;i<pat.length();i++)
+        {
+            txtPat=txtPat+txt.charAt(i);
+        }
+
+        for(int i=pat.length();i<txt.length();i++)
+        {
+            if(txtPat==sciPat){return true;}// no need to check order
+            else{
+                txtPat=txtPat-txt.charAt(i-pat.length())+txt.charAt(i);
+
+            }
+
+
+
+        }
+
+
+        return false;
+    }
