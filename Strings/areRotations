@@ -1,0 +1,16 @@
+  */
+    public static boolean areRotations(String s, String x )
+    {
+        if(s.length()==1 && s.compareTo(x)==0 ){return true;}
+        
+        
+        if(s.length()!=x.length()){return false;}
+        
+                  String ans= x+x;
+ 
+        if( ans.indexOf(s)>=0){return true;} else {return false;}
+    }
+    
+    
+    ///combine two rotated strings, and chek if you are able to find teh original string
+    
