@@ -1,0 +1,30 @@
+//In this we take an array of zero , at array x we put a and if array x is not null ,
+//then we check if it is equal to a, if it is not , then we return false
+
+//xxy 
+//aav
+
+public static boolean areIsomorphic(String S1,String S2)
+    {
+          if(S1.length()!=S2.length()){return false;}
+        int[] s1=new int[256];
+        int[] s2=new int[256];
+        //1.need to fill them if they are emplty
+        //2.IF they are not empty then you need to compare s1 with s2 and s2 with s1
+
+        for(int i=0;i<S1.length();i++)
+        {
+            if(s1[S1.charAt(i)]==0 && s2[S2.charAt(i)]==0)
+            {
+                s1[S1.charAt(i)]=S2.charAt(i);
+                s2[S2.charAt(i)]=S1.charAt(i);
+            }
+            else{
+                if(s1[S1.charAt(i)]!= S2.charAt(i) || s2[S2.charAt(i)] !=S1.charAt(i) ){return false;}
+            }
+        }
+
+
+        return true;
+        
+    }
