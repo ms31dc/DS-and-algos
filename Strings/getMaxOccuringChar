@@ -1,0 +1,25 @@
+////Check for order of data even while every loop.
+public static char getMaxOccuringChar(String s) {
+
+        int max = 1;
+        char res = s.charAt(0);
+        HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+
+            if (hm.containsKey(s.charAt(i)) == false)
+            {  hm.put(s.charAt(i), 1);}
+             else {int ff = hm.get(s.charAt(i));
+                hm.put(s.charAt(i), ff + 1);}
+
+                int das = hm.get(s.charAt(i));
+
+                if (das > max) {
+                    res = s.charAt(i) ;
+                    max=das;
+                }
+                if (das == max) {
+               if(res>s.charAt(i)   ) { res=s.charAt(i) ;}
+                }
+        }
+        return res;
+        }
