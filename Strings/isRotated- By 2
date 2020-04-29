@@ -1,0 +1,31 @@
+  public static boolean isRotated(String s1, String s2){
+
+if(s1.length()<=2 && s1.compareTo(s2)==0 ){return true;}
+
+else if(s1.length()<=2 && s1.compareTo(s2)!=0 ){return false;}
+
+if(s1.length() != s2.length()) {return false;}
+
+        int m=s1.length();
+        int n =s2.length();
+
+        String a1=s1.substring(0,2);
+        String a2=s2.substring(n-2,n);
+
+        String a3=s1.substring(m-2,m);
+        String a4=s2.substring(0,2);
+
+      //  System.out.println("a1 is "+a1+" a2 is "+a2+" a3 is "+a3+" a4 is "+a4);
+
+        if(a1.compareTo(a2)==0|| a3.compareTo(a4)==0 )
+        {
+            return true;
+        }
+
+
+
+
+return false;
+      
+        
+    }
