@@ -1,0 +1,46 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		while(T-->0)
+		{
+		    int n=sc.nextInt();
+		    System.out.println(findNo(n));
+		}
+		    
+		}
+		
+		  public static int findNo(int n)
+    {
+        int couunt=1;
+        int i=1;
+        for(i=1;couunt<=n;i++)
+        {
+            if(isPrime(i)==true)
+            {couunt=couunt+1;}
+        }
+        return i-1;
+    }
+
+    public static boolean isPrime(int num)
+    {
+        while (num > 0) {
+            int x = num%10;
+            if (!(x==2 || x==3 || x==5 || x==7))
+                return false;
+            num /= 10;
+        }
+        return true;
+
+    }
+    
+		
+	 
+	}
