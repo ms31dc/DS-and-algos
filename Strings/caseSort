@@ -1,0 +1,42 @@
+ public static String caseSort(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        int small=0;
+        int large=0;
+                for(int i=0;i<s.length();i++)
+                {
+                    if(s.charAt(i)>=97){small++;}
+                    if(s.charAt(i)<=90){large++;}
+                }
+         char [] smallStuff=new char[small];
+         char [] bigStuff=new char[large];
+
+         int start=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)>=97){smallStuff[start]=s.charAt(i);start++; }
+
+        }
+
+          start=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)<=90){bigStuff[start]=s.charAt(i);start++; }
+
+        }
+
+        Arrays.sort(smallStuff);
+        Arrays.sort(bigStuff);
+
+        int a=0;
+        int b=0;
+
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)>=97){sb.append(smallStuff[a]); a++;}
+            if(s.charAt(i)<=90){sb.append(bigStuff[b]); b++;}
+        }
+
+        return  sb.toString();
+  
+    }
