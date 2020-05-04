@@ -1,0 +1,23 @@
+class solve
+{
+    // Function to print string after removing consecutive duplicates
+    public static String removeConsecutiveDuplicates(String str){
+        
+        Stack<Character> st = new Stack<>();
+        ///aabbbccccc
+        int n=str.length();
+        
+    String s="";
+        
+        st.push(str.charAt(0));
+        s=s+st.peek();
+        
+        for(int i =1;i<n;i++)
+        {
+            if(st.peek()!=str.charAt(i)){s=s+st.push(str.charAt(i)) ;  }
+            
+        } 
+        
+        return s;
+    }
+}
