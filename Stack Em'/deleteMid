@@ -1,0 +1,38 @@
+class Geeks
+{
+    //Complete this function
+    public Stack<Integer> deleteMid(Stack<Integer>s,int sizeOfStack,int current)
+    {
+      //sizeOfStack=5 , need to pop out three 
+      double qee=(double)sizeOfStack/2d;//3 
+      qee=Math.ceil(qee);
+      int mid=(int)qee;
+      int toPop=sizeOfStack-mid;//2
+      
+      Stack<Integer> asd =new Stack<>();
+      
+      for(int i=1;i<=toPop;i++)
+      {
+          asd.push(s.pop());
+          
+      }
+      
+      s.pop();
+      
+      while(s.isEmpty()==false)
+      {
+         asd.push(s.pop()); 
+      }
+      
+       Stack<Integer> res =new Stack<>();
+       
+        while(asd.isEmpty()==false)
+      {
+         res.push(asd.pop()); 
+      }
+       
+      
+      
+      return res ;
+    } 
+}
