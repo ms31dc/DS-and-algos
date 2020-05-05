@@ -1,0 +1,39 @@
+class solve{
+     public static int doCalculation(int a1,int a2,char c)
+    {
+        if(c=='*'){return a2*a1;}
+        else if(c=='+'){return a2+a1;}
+        else if(c=='-'){return a2-a1;}
+        else if(c=='/'){return a2/a1;}
+
+        else return -1;
+    }
+
+
+
+    public static int evaluatePostFix(String exp){
+         Stack<Integer> st =new Stack<>();
+
+        for(int i=0;i<exp.length();i++)
+        {
+            char c=exp.charAt(i);
+
+            if(Character.isDigit(c))
+                st.push(c - '0');
+
+            else/// IF this is a operator
+            {
+                int a1=st.pop();
+                int a2=st.pop();
+
+                int res=doCalculation(a1,a2,exp.charAt(i));
+                st.push(res);
+            }
+
+
+        }
+
+
+        return st.pop();
+    }
+    
