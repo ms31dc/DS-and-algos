@@ -1,0 +1,37 @@
+class Celebrity
+{
+    // The task is to complete this function
+    
+ public static boolean knows(int M[][], int a , int b)
+ {
+     boolean res= (M[a][b]==1)?true:false;
+     return res;
+ }
+    
+    
+    
+    int getId(int M[][], int n)
+    {
+        // Your code here
+        
+       
+        
+        int candidate=0;
+        
+        for(int i=1;i<n;i++)
+        {
+            if(knows(M,candidate,i)==true) candidate=i;
+        }
+        
+        
+        for(int i=0;i<n;i++)
+        {
+            if(candidate!=i  && (knows(M,candidate,i)|| !knows(M,i,candidate)) )
+            return -1;
+        }
+        return candidate;
+        
+        
+        
+    }
+}
