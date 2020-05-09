@@ -1,0 +1,46 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class GFG
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        
+        while(t-- > 0)
+        {
+            long n = sc.nextLong();
+            new solve().generate(n);
+            System.out.println();
+        }
+    }
+}// } Driver Code Ends
+
+
+class solve{
+    static void generate(long n)
+    {
+       Queue<String> q =new LinkedList<>();
+       
+       q.add("10");
+       q.add("11");
+       
+       if(n==1){System.out.print(1); return;}
+        
+       System.out.print(1+" ");
+       
+       
+       for(int i=2;i<=n;i++)
+       {
+           String x=q.poll();
+           System.out.print(x+" ");
+           
+           q.add(x+""+"0");
+           q.add(x+""+"1");
+           
+       }
+    }
+    
+}
