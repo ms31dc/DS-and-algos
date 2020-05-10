@@ -1,0 +1,20 @@
+/////This program is not practised on the system ,but rather directly on the github profile
+public void levelOrderSearch(Node root)
+{
+if(root==null){return ;}
+
+Queue<Integer> q =new LinkedList<>();
+q.add(root);
+
+while(q.isEmpty() == false)
+{
+Node cur = q.poll();
+System.out.primt(cur.key);
+
+if(q cur.left!=null){q.add(cur.left);}
+if(q cur.right!=null){q.add(cur.right);}
+}
+
+
+
+}
