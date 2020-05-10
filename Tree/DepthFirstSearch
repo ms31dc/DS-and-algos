@@ -1,0 +1,34 @@
+    void inorderTraversal(Node head)
+        {
+            while(head!=null)
+            {
+                inorderTraversal(head.left);
+                System.out.println(head.key);
+                inorderTraversal(head.right);
+            }
+
+
+        }
+
+
+        void preOrder(Node head)
+        {
+            while(head!=null)
+            {   System.out.println(head.key);
+                inorderTraversal(head.left);
+                inorderTraversal(head.right);
+            }
+
+
+        }
+
+        void postOrder(Node head)
+        {
+            while(head!=null)
+            {  inorderTraversal(head.left);
+                inorderTraversal(head.right);
+                System.out.println(head.key);
+            }
+
+
+        }
