@@ -1,0 +1,29 @@
+///this is practise code
+
+public void printWithNewLine(Node root)
+{
+if(root==null)
+{return;}
+
+Queue<Integer> q =new LinkedList<>();
+q.add(root);
+q.add(null);
+
+while(q.size()>1)
+{
+Node cur=q.poll();
+if(q==null)
+{
+System.out.println();
+q.add(null);
+}
+else{
+System.out.print(cur.key);
+if(cur.left!=null){q.add(cur.left);}
+if(cur.right!=null){q.add(cur.right);}
+}
+
+}
+
+
+}
