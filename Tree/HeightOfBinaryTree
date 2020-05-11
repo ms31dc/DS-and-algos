@@ -1,0 +1,16 @@
+///BFS way , doing for pratice
+
+
+void getHeight(Node root)
+{
+
+if(root==null)
+{return MIN_VALUE;}
+
+else{
+
+Math.max(getHeight(root.left) , getHeight (root.right))+1;
+}
+
+
+}
