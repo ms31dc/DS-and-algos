@@ -1,0 +1,14 @@
+///Manual practise , not coded
+
+///We can do BFS way or DFS way , we are doing the DFS way which uses recursion
+
+int binarySize(Node root)
+{
+if(root==null)
+return 0;
+
+else{
+return binarySize(root.left)+binarySize(root.right)+1;}
+
+
+}
