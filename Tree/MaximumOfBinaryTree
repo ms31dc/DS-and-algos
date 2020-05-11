@@ -1,0 +1,16 @@
+////we can do DFS way or BFS way
+
+//we are doing BFS way
+
+int maximumBinaryTree(Node root)
+{
+if(root==null)
+{return Integer.MIN_VALUE;}
+
+else{
+return Math.max(root.key,Math.max(maximumBinaryTree(root.left),maximumBinaryTree(root.right)));
+
+}
+
+
+}
