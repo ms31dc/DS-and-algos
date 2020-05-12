@@ -1,0 +1,46 @@
+///to check if a parent node equals to the sum of the children
+
+boolean chuildrenSum(Node root)
+{
+
+if(root==null){return true;}
+
+Queue<Integer> q = new LinkedList<>();
+
+q.add(root);
+
+while(q.isEmpty()==false)
+{
+
+Node cur = q.poll();
+
+if(cur.left!=null && cur.right!=null)
+{
+if(cur.key!=(cur.left+cur.right))
+{return false;}
+
+q.add(cur.left);
+q.add(cur.right);
+
+}
+
+if(cur.left!=null && cur.right==null)
+{  
+if(cur.key!=(cur.left)
+{return false;}
+q.add(cur.left);
+}
+
+if(cur.right!=null && cur.left==null)
+{  
+if(cur.key!=(cur.right)
+{return false;}
+q.add(cur.right);
+}
+
+
+
+}
+return true;
+
+}
