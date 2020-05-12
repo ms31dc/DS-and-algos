@@ -1,0 +1,28 @@
+void printLeftFaceView(Node root)
+{
+
+if(root==null){return ;}
+
+Queue<Integer> q =new LinkedList<>();
+q.add(root);
+
+whille(q.isEmpty()==false)
+{
+int n =q.size();
+
+for(int i=0;i<n;i++)
+{
+Node cur = q.poll();
+if(i==0){System.out..print(cur.key);}
+
+if(cur.left!=null){q.add(cur.left);}
+if(cur.right!=null){q.add(cur.right);}
+}
+
+
+
+
+}
+
+
+}
